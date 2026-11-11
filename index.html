@@ -3,13 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chat Assistant</title>
+    <meta
+      name="description"
+      content="A beauty assistant for L’Oréal product, routine, and recommendation questions."
+    />
+    <title>L’Oréal Beauty Assistant</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -19,43 +23,64 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <a class="brand" href="#main" aria-label="L’Oréal Beauty Assistant home">
+          <img src="img/loreal-logo.png" alt="L’Oréal Paris" />
+        </a>
+        <p class="header-note">BEAUTY, MADE PERSONAL</p>
       </header>
 
       <!------- Chat Area ------->
-      <main>
+      <main id="main">
         <section class="chatbox">
-          <div id="chatWindow" class="chat-window">
-            <!-- messages will be appended here via JS -->
+          <div class="chat-intro">
+            <p class="eyebrow">YOUR BEAUTY ASSISTANT</p>
+            <h1 class="site-title">A little more you.</h1>
+            <p class="intro-copy">
+              Explore L’Oréal products, build a routine, or find a recommendation
+              for what you need today.
+            </p>
+          </div>
+
+          <div class="latest-question" aria-live="polite" hidden>
+            <span class="latest-question-label">YOUR LATEST QUESTION</span>
+            <p id="latestQuestion"></p>
+          </div>
+
+          <div
+            id="chatWindow"
+            class="chat-window"
+            role="log"
+            aria-live="polite"
+            aria-relevant="additions text"
+            aria-label="Chat conversation"
+          >
+            <!-- Messages are added here by script.js. -->
           </div>
 
           <form id="chatForm" class="chat-form">
-            <label for="userInput" class="visually-hidden">Message</label>
+            <label for="userInput" class="visually-hidden">Ask a beauty question</label>
             <input
               id="userInput"
               name="userInput"
               type="text"
-              placeholder="Ask me about products or routines…"
+              placeholder="Ask about a product, routine, or beauty concern…"
               autocomplete="off"
+              maxlength="1000"
               required
             />
             <button type="submit" id="sendBtn">
-              <span class="material-icons">send</span>
-              <span class="visually-hidden">Send</span>
+              <span class="material-icons" aria-hidden="true">arrow_upward</span>
+              <span class="visually-hidden">Send message</span>
             </button>
           </form>
+          <p class="privacy-note">Please don’t share sensitive personal information.</p>
         </section>
       </main>
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
-        <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
-        </nav>
+        <p>For beauty inspiration only. Product availability may vary by region.</p>
+        <p class="footer-small">An educational project, not an official L’Oréal service.</p>
       </footer>
     </div>
 
